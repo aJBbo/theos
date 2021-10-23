@@ -1,0 +1,14 @@
+ifeq ($(_THEOS_PACKAGE_FORMAT_LOADED),)
+_THEOS_PACKAGE_FORMAT_LOADED := 1
+
+ifeq ($(_THEOS_FINAL_PACKAGE),$(_THEOS_TRUE))
+export COMPRESSION ?= 9
+else
+export COMPRESSION ?= 1
+endif
+
+internal-package::
+	$(ECHO_NOTHING)"$(IPA_SCRIPT)"$(ECHO_END)
+
+after-package:: __THEOS_LAST_PACKAGE_FILENAME = $(THEOS_PACKAGE_DIR)/$(OUTPUT_NAME)
+endif

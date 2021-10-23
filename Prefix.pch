@@ -1,0 +1,35 @@
+// The contents of this prefix header are deprecated. Do not rely on any of the implicit
+// functionality provided by Prefix.pch, such as automatic import of UIKit, HBLog macro,
+// and other iOS-specific convenience macros. Rather, import things you need explicitly.
+//
+// For example:
+// #import <HBLog.h>
+// #import <theos/BackwardsCompat.h>
+//
+// This header will no longer have any effect when used with the iOS 14 or newer SDK. It
+// has already been removed for other platforms, such as macOS and tvOS, and is not used
+// at all for Swift files.
+
+#ifdef DEBUG
+	#define __DEBUG__
+#endif
+
+#ifdef __OBJC__
+	#ifdef TARGET_OS_IPHONE
+		#ifdef TARGET_OS_SIMULATOR
+			#define _THEOS_IS_SIMULATOR TARGET_OS_SIMULATOR
+		#else
+			#define _THEOS_IS_SIMULATOR TARGET_IPHONE_SIMULATOR
+		#endif
+
+		#if (TARGET_OS_IPHONE || _THEOS_IS_SIMULATOR) && !defined(__IPHONE_14_0) && !defined(THEOS_LEAN_AND_MEAN)
+			#import <theos/BackwardsCompat.h>
+			#import <Foundation/Foundation.h>
+			#import <UIKit/UIKit.h>
+			#import <theos/IOSMacros.h>
+			#import <HBLog.h>
+		#endif
+
+		#undef _THEOS_IS_IOS
+	#endif
+#endif
