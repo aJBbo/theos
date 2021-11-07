@@ -5,11 +5,11 @@
   "author": "Theos",
   "license": "GPL-3.0",
   "homepage": "https://theos.github.io/",
-  "bugs": "https://github.com/theos/theos/issues",
+  "bugs": "https://github.com/aJBbo/theos/issues",
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theos/theos.git"
+    "url": "git+https://github.com/aJBbo/theos.git"
   },
 
   "keywords": [
